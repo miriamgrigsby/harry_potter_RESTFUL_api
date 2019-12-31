@@ -5,7 +5,9 @@ const spell1dropdown = document.getElementById('spell1-dropdown')
 
 const house2Container = document.getElementById('house2-container')
 const house2dropdown = document.getElementById('house2-dropdown')
+const spell2dropdown = document.getElementById('spell2-dropdown')
 const charater2CreateContainer =  document.getElementById('character2create-container')
+
 
 fetch('http://localhost:3000/characters')
 .then(response =>response.json())
@@ -21,10 +23,11 @@ function characterInfo(characters) {
         house1dropdown.appendChild(houseOption)
         house1Container.appendChild(house1dropdown)
 
-        spellFinder = character.character_spells.map(spell => {
-            spell.spell.name})
-        spellIdFinder = character.character_spells.map(spell => {
-            spell.spell.id})
+        
+        spellFinder = character.spells.map(spell => {
+            return spell.name})
+        spellIdFinder = character.spells.map(spell => {
+            return spell.id})
         let spell1Option = document.createElement('option')
         spell1Option.innerText = spellFinder
         spell1Option.value = spellIdFinder
@@ -37,9 +40,18 @@ function characterInfo(characters) {
         house2Option.value = character.house.id
         house2dropdown.appendChild(house2Option)
         house2Container.appendChild(house2dropdown)
+
+        spell2Finder = character.spells.map(spell => {
+            return spell.name})
+        spell2IdFinder = character.spells.map(spell => {
+            return spell.id})
+        let spell2Option = document.createElement('option')
+        spell2Option.innerText = spell2Finder
+        spell2Option.value = spell2IdFinder
+        spell2dropdown.appendChild(spell2Option)
         
-        // starterContainer.append(charater1CreateContainer)
-        // spell1Option.innerText = character.character_spells
+        starterContainer.append(charater1CreateContainer)
+        spell1Option.innerText = character.character_spells
         // Need to have event listener that grabs the data from house dropdown to make it appear in the team1-container
         // need to have an event listener that grabs choice value from dropdown to filter the available characters to add to your team
         

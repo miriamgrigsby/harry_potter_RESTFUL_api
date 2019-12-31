@@ -10,5 +10,5 @@ class Character < ApplicationRecord
 
     validates :name, presence: true
     validates :name, uniqueness: {case_sensitive: false}
-    validates :ancestry, presence: true
+    # validates :blood-status, presence: true
 end

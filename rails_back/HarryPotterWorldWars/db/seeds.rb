@@ -43,7 +43,7 @@ charResult.each do |character|
     end
 end
 
-
+binding.pry
 
 
 
