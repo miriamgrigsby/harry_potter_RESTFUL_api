@@ -45,7 +45,3 @@ end
 
 binding.pry
 
-
-
-
-
