@@ -23,8 +23,7 @@ ActiveRecord::Schema.define(version: 2019_12_30_203648) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.string "ancestory"
-    t.string "image"
+    t.string "ancestry"
     t.integer "house_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
