@@ -3,12 +3,12 @@ class CharactersController < ApplicationController
     before_action :find_character, only: [:show, :update, :destroy]
 
     def index
-        render json: Character.all, include:[:house, character_spells: {include: :spell}]
+        render json: Character.all, include:[:house, :spells]
         
     end
     
     def show 
-        render json: @character, include:[:house, character_spells: {include: :spell}]
+        render json: @character, include:[:house, :spells]
     end
 
     def create

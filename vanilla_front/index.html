@@ -31,7 +31,19 @@
         <h2>Pick A Second House</h2>
         <section id='house2-container'></section>
             <select name="house_id" id="house2-dropdown"></select>
-
+        
+        <section id='character2create-container'>
+            <form method='POST' action='http://localhost:3000/characters'>
+                <label>Name:</label>
+                <input type='text' name='name'/>
+                <label>Ancestry:</label>
+                <input type='text' name='ancestry' placeholder='Muggle, Half-Blood, Full-Blood'/>
+                <label>Available Spells:</label>
+                <select name='spell' id="spell2-dropdown"></select>
+                <!-- <characters -->
+                <input type='submit'/>
+            </form>
+        </section>
     </div>
     
 

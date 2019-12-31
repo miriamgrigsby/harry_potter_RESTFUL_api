@@ -1,0 +1,13 @@
+#starter-container {
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+}
+#house1-container {
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+#house2-container {
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
