@@ -23,7 +23,7 @@
                 <label>Ancestry:</label>
                 <input type='text' name='ancestry' placeholder='Muggle, Half-Blood, Full-Blood'/>
                 <label>Available Spells:</label>
-                <select name='spell' id="spell1-dropdown"></select>
+                <select name='spell' id="spell1-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
                 <!-- <characters -->
                 <input type='submit'/>
             </form>
@@ -39,7 +39,7 @@
                 <label>Ancestry:</label>
                 <input type='text' name='ancestry' placeholder='Muggle, Half-Blood, Full-Blood'/>
                 <label>Available Spells:</label>
-                <select name='spell' id="spell2-dropdown"></select>
+                <select name='spell' id="spell2-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
                 <!-- <characters -->
                 <input type='submit'/>
             </form>
