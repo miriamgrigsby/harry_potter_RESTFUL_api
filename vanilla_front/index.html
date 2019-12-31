@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>HarryPotterWorldWars</title>
+    <h1>Harry Potter World Wars</h1>
     <link rel="stylesheet" href="app.css"/>
 </head>
 <body>
+    <p>
+        Start by choosing a house and creating your own characters. Then you will add two other characters from that house to your team. Create a second team, and battle it out below to be the top witch or wizard of the Wizarding World!
+    </p>
+    <div id='starter-container'>
+        <h2>Pick A House</h2>
+        <section id='house1-container'></section>
+            <select name="house_id" id="house1-dropdown"></select>
+        <section id='character1create-container'>
+            <form method='POST' action='http://localhost:3000/characters'>
+                <label>Name:</label>
+                <input type='text' name='name'/>
+                <label>Ancestry:</label>
+                <input type='text' name='ancestry' placeholder='Muggle, Half-Blood, Full-Blood'/>
+                <label>Available Spells:</label>
+                <select name='spell' id="spell1-dropdown"></select>
+                <!-- <characters -->
+                <input type='submit'/>
+            </form>
+        </section>
+        <h2>Pick A Second House</h2>
+        <section id='house2-container'></section>
+            <select name="house_id" id="house2-dropdown"></select>
+
+    </div>
+    
+
+
+
 
     <script src="app.js"></script>
     

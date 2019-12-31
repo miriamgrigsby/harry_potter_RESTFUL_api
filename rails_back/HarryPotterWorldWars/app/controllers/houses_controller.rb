@@ -10,6 +10,11 @@ class HousesController < ApplicationController
         render json: @house
     end 
 
+
+    def destroy
+        @house.destroy
+    end 
+
     private 
 
     def find_house 
