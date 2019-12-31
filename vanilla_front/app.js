@@ -10,12 +10,32 @@ const charater2CreateContainer =  document.getElementById('character2create-cont
 
 
 fetch('http://localhost:3000/characters')
-.then(response =>response.json())
+.then(response => response.json())
 .then(characterInfo)
+
+fetch('http://localhost:3000/spells')
+.then(response => response.json())
+.then(spellInfo)
+
+function spellInfo(spells) {
+    spells.map(spell => {
+        console.log(spell.name)
+        let spell1Option = document.createElement('option')
+        spell1Option.innerText = spell.name
+        spell1Option.value = spell.id
+        spell1dropdown.appendChild(spell1Option)
+
+        let spell2Option = document.createElement('option')
+        spell2Option.innerText = spell.name
+        spell2Option.value = spell.id
+        spell2dropdown.appendChild(spell2Option)
+    })
+}
+
 
 function characterInfo(characters) {
     characters.map(character => {
-
+        
         house1Info = character.house.name
         let houseOption = document.createElement('option')
         houseOption.innerText = house1Info
@@ -23,15 +43,14 @@ function characterInfo(characters) {
         house1dropdown.appendChild(houseOption)
         house1Container.appendChild(house1dropdown)
 
-        
-        spellFinder = character.spells.map(spell => {
-            return spell.name})
-        spellIdFinder = character.spells.map(spell => {
-            return spell.id})
-        let spell1Option = document.createElement('option')
-        spell1Option.innerText = spellFinder
-        spell1Option.value = spellIdFinder
-        spell1dropdown.appendChild(spell1Option)
+        // spellFinder = character.spells.map(spell => {
+        //     return spell.name})
+        // spellIdFinder = character.spells.map(spell => {
+        //     return spell.id})
+        // let spell1Option = document.createElement('option')
+        // spell1Option.innerText = spellFinder
+        // spell1Option.value = spellIdFinder
+        // spell1dropdown.appendChild(spell1Option)
         // charater1CreateContainer.appendChild(spell1dropdown)
 
         house2Info = character.house.name
@@ -41,14 +60,14 @@ function characterInfo(characters) {
         house2dropdown.appendChild(house2Option)
         house2Container.appendChild(house2dropdown)
 
-        spell2Finder = character.spells.map(spell => {
-            return spell.name})
-        spell2IdFinder = character.spells.map(spell => {
-            return spell.id})
-        let spell2Option = document.createElement('option')
-        spell2Option.innerText = spell2Finder
-        spell2Option.value = spell2IdFinder
-        spell2dropdown.appendChild(spell2Option)
+        // spell2Finder = character.spells.map(spell => {
+        //     return spell.name})
+        // spell2IdFinder = character.spells.map(spell => {
+        //     return spell.id})
+        // let spell2Option = document.createElement('option')
+        // spell2Option.innerText = spell2Finder[5]
+        // spell2Option.value = spell2IdFinder
+        // spell2dropdown.appendChild(spell2Option)
         
         // starterContainer.append(charater1CreateContainer)
         // spell1Option.innerText = character.character_spells
@@ -64,7 +83,7 @@ function characterInfo(characters) {
             let droppers = document.getElementById("house1-dropdown");
             [].slice.call(droppers.options).map(function(drop){
             if(this[drop.value]){ 
-            droppers.removeChild(drop); 
+            droppers.removeChild(drop);
             } else { 
             this[drop.value]=1; 
             } 
@@ -79,7 +98,5 @@ function characterInfo(characters) {
             } 
         },{});
     })
-
-    
 
 }

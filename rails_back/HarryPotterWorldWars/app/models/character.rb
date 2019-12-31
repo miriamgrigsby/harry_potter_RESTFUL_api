@@ -8,7 +8,7 @@ class Character < ApplicationRecord
         self.spells << spell
     end
 
-    validates :name, presence: true
-    validates :name, uniqueness: {case_sensitive: false}
-    validates :ancestry, presence: true
+    # validates :name, presence: true
+    # validates :name, uniqueness: {case_sensitive: false}
+    # validates :ancestry, presence: true
 end

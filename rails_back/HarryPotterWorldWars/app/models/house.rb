@@ -1,3 +1,3 @@
 class House < ApplicationRecord
-    has_many :characters, dependent: :destroy
+    has_many :characters
 end
