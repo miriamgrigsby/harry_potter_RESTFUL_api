@@ -4,53 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='/chosen_v1.8.7/chosen.jquery.min.js'></script>
     <title>HarryPotterWorldWars</title>
-    <h1>Harry Potter World Wars</h1>
     <link rel="stylesheet" href="app.css"/>
+    <link rel="stylesheet" href="chosen_v1.8.7/chosen.min.css">
 </head>
 <body>
+    <div id='home-container' onclick='this.style.display="none";'>
+        <button id='enter-button'>Enter Hogwarts Wars</button>
+    </div>
+    <!-- <img src='http://getwallpapers.com/wallpaper/full/9/8/5/17360.jpg' id='home-container' onclick='this.style.display="none";'> -->
+
+    <h1>Harry Potter World Wars</h1>
     <p>
         Start by choosing a house and creating your own characters. Then you will add two other characters from that house to your team. Create a second team, and battle it out below to be the top witch or wizard of the Wizarding World!
     </p>
     <div id='starter-container'>
-        <h2>Pick A House</h2>
-        <section id='house1-container'></section>
-            <select name="house_id" id="house1-dropdown"></select>
         <section id='character1create-container'>
+            <h2 id='header1-container'>Pick A House and 2 Team Members</h2>
             <form method='POST' action='http://localhost:3000/characters'>
-                <label>Name:</label>
-                <input type='text' name='name'/>
-                <label>Ancestry:</label>
-                <input type='text' name='ancestry' placeholder='Muggle, Half-Blood, Full-Blood'/>
-                <label>Available Spells:</label>
-                <select name='spell' id="spell1-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
-                <!-- <characters -->
-                <input type='submit'/>
+                <section id='house1-container'>
+                    <select name="house_id" id="house1-dropdown" style='width: 175px;' data-placeholder='Choose A House'></select>
+                </section>
+                <section id='name1Ance-container'>
+                    <label>Name:</label>
+                    <input type='text' name='name'/>
+                    <label style='margin-left: 10px;'>Ancestry:</label>
+                    <input type='text' name='ancestry' placeholder='Muggle/Half-Blood'/>
+                </section>
+                <section id='spell-container'>
+                    <label>Available Spells:</label>
+                    <select name='spell_id' id="spell1-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
+                </section>
+                <section id='submit-container'>
+                    <input type='submit'/>
+                </section>
             </form>
+            <section id='mates1-container'>
+                <select name="character_id" id="char1-dropdown" style='width: 175px;' data-placeholder='Choose Character'></select>
+            </section>
         </section>
-        <h2>Pick A Second House</h2>
-        <section id='house2-container'></section>
-            <select name="house_id" id="house2-dropdown"></select>
-        
+
         <section id='character2create-container'>
+            <h2 id='header2-container'>Pick A Second House and 2 Team Members</h2>
             <form method='POST' action='http://localhost:3000/characters'>
-                <label>Name:</label>
-                <input type='text' name='name'/>
-                <label>Ancestry:</label>
-                <input type='text' name='ancestry' placeholder='Muggle, Half-Blood, Full-Blood'/>
-                <label>Available Spells:</label>
-                <select name='spell' id="spell2-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
-                <!-- <characters -->
-                <input type='submit'/>
+                <section id='house2-container'>
+                    <select name="house_id" id="house2-dropdown" style='width: 175px;' data-placeholder='Choose A House'></select>
+                </section>
+                <section id='name2Ance-container'>
+                    <label>Name:</label>
+                    <input type='text' name='name'/>
+                    <label style='margin-left: 10px;'>Ancestry:</label>
+                    <input type='text' name='ancestry' placeholder='Muggle/Half-Blood'/>
+                </section>
+                <section id='spell2-container'>
+                    <label>Available Spells:</label>
+                    <select name='spell_id' id="spell2-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
+                </section>
+                <section id='submit2-container'>
+                    <input type='submit'/>
+                </section>
             </form>
+            <section id='mates2-container'>
+                <select name="character_id" id="char2-dropdown" style='width: 175px;' data-placeholder='Choose Character'></select>
+            </section>
         </section>
     </div>
-    
-
-
+    <div id='fight-container'>
+        <section id='team1-container'></section>
+        <section id='team2-container'></section>
+        <section id='battlebutton-container'></section>
+        <section id='winner-container'></section>
+    </div>
 
 
     <script src="app.js"></script>
-    
 </body>
 </html>
