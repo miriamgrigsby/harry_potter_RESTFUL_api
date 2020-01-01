@@ -37,11 +37,16 @@ charResult.each do |character|
             name: character["name"],
             ancestry: character["blood-status"]
         )
-        25.times.map do |i|
+        1.times.map do |i|
             CharacterSpell.find_or_create_by(spell_id: rand(1..93), character_id: rand(1..33))
         end
     end
 end
 
-binding.pry
+# binding.pry
+
+
+
+
+
 
