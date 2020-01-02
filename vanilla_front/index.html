@@ -15,15 +15,16 @@
         <button id='enter-button'>Enter Hogwarts Wars</button>
     </div>
     <!-- <img src='http://getwallpapers.com/wallpaper/full/9/8/5/17360.jpg' id='home-container' onclick='this.style.display="none";'> -->
-
-    <h1>Harry Potter World Wars</h1>
-    <p>
-        Start by choosing a house and creating your own characters. Then you will add two other characters from that house to your team. Create a second team, and battle it out below to be the top witch or wizard of the Wizarding World!
-    </p>
+    <div id='topper'>
+        <h1>Harry Potter World Wars</h1>
+        <p>
+            Start by choosing a house and creating your own characters. Then you will add two other characters from that house to your team. Create a second team, and battle it out below to be the top witch or wizard of the Wizarding World!
+        </p>
+    </div>
     <div id='starter-container'>
         <section id='character1create-container'>
             <h2 id='header1-container'>Pick A House and 2 Team Members</h2>
-            <form method='POST' action='http://localhost:3000/characters'>
+            <form id='form1' method='POST' action='http://localhost:3000/characters'>
                 <section id='house1-container'>
                     <select name="house_id" id="house1-dropdown" style='width: 175px;' data-placeholder='Choose A House'></select>
                 </section>
@@ -35,20 +36,19 @@
                 </section>
                 <section id='spell-container'>
                     <label>Available Spells:</label>
-                    <select name='spell_id' id="spell1-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
+                    <select name='spell_id' id="spell1-dropdown" style='width: 175px;' data-placeholder='Choose A Spell'></select>
                 </section>
                 <section id='submit-container'>
                     <input type='submit'/>
                 </section>
             </form>
             <section id='mates1-container'>
-                <select name="character_id" id="char1-dropdown" style='width: 175px;' data-placeholder='Choose Character'></select>
+                <select multiple name="character_id" id="char1-dropdown" style='width: 350px;' data-placeholder='Choose 2 Characters'></select>
             </section>
         </section>
-
         <section id='character2create-container'>
             <h2 id='header2-container'>Pick A Second House and 2 Team Members</h2>
-            <form method='POST' action='http://localhost:3000/characters'>
+            <form id='form2' method='POST' action='http://localhost:3000/characters'>
                 <section id='house2-container'>
                     <select name="house_id" id="house2-dropdown" style='width: 175px;' data-placeholder='Choose A House'></select>
                 </section>
@@ -60,21 +60,23 @@
                 </section>
                 <section id='spell2-container'>
                     <label>Available Spells:</label>
-                    <select name='spell_id' id="spell2-dropdown" onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;"></select>
+                    <select name='spell_id' id="spell2-dropdown" style='width: 175px;' data-placeholder='Choose A Spell'></select>
                 </section>
                 <section id='submit2-container'>
                     <input type='submit'/>
                 </section>
             </form>
             <section id='mates2-container'>
-                <select name="character_id" id="char2-dropdown" style='width: 175px;' data-placeholder='Choose Character'></select>
+                <select multiple name="character_id" id="char2-dropdown" style='width: 350px;' data-placeholder='Choose 2 Characters'></select>
             </section>
         </section>
     </div>
     <div id='fight-container'>
         <section id='team1-container'></section>
         <section id='team2-container'></section>
-        <section id='battlebutton-container'></section>
+        <section id='battlebutton-container'>
+            <button id='bbutton'> Battle!</button>
+        </section>
         <section id='winner-container'></section>
     </div>
 
