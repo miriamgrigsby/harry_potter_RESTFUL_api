@@ -111,10 +111,15 @@ function characterInfo(characters) {
 
     $('#char1-dropdown').on('change', function() {
         let selections = $('#char1-dropdown :selected')
+        array1 = []
         if (selections.length == 2) {
             let char1Node1 = document.createElement('h3')
             let char1Node2 = document.createElement('h3')
             char1Node1.innerText = selections[0].innerText
+            let v1 = parseInt(selections[0]["value"])
+            let v2 = parseInt(selections[1]["value"])
+            array1.push(v1, v2)
+            window.charArray1 = array1
             char1Node2.innerText = selections[1].innerText
             team1Container.append(char1Node1, char1Node2)
         }
@@ -122,11 +127,16 @@ function characterInfo(characters) {
 
     $('#char2-dropdown').on('change', function() {    
         let selections2 = $('#char2-dropdown :selected')
+        let array2 = []
         if (selections2.length == 2) {
             let char2Node1 = document.createElement('h3')
             let char2Node2 = document.createElement('h3')
             char2Node1.innerText = selections2[0].innerText
             char2Node2.innerText = selections2[1].innerText
+            let v1 = parseInt(selections2[0]["value"])
+            let v2 = parseInt(selections2[1]["value"])
+            array2.push(v1, v2)
+            window.charArray2 = array2
             team2Container.append(char2Node1, char2Node2)
         }    
     })
@@ -153,38 +163,120 @@ $('#form1').submit(function() {
     let yourDeleteButton1 = document.createElement('button')
     yourDeleteButton1.innerText = "Delete"
     newChar1Node.appendChild(yourDeleteButton1)
+    let yourUpdateButton1 = document.createElement('button')
+    yourUpdateButton1.innerText = "Update"
+    newChar1Node.appendChild(yourUpdateButton1)
+    
+        yourUpdateButton1.addEventListener('click', (event) => {
+        hiddenForm()
+        charOptionArray = charArray[1]['value']
+        fetch('http://localhost:3000/characters')
+        .then(response => response.json())
+        .then(newCharcomparison)
+        .then(value => {
+            fetch(`http://localhost:3000/characters/${value}`, {
+                method: 'PUT',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Accept':'application/json'
+                },
+                body:JSON.stringify({ancestry: "pup"})
+            })
+        })
+    })
+
     yourDeleteButton1.addEventListener('click', (event) => {
-    // event.target.parentNode.remove()
-    fetch(`http://localhost:3000/characters/${newChar1Node.value}`, {
-        method: 'DELETE'
+    event.target.parentNode.remove()
+    charOptionArray = charArray[1]['value']
+    fetch('http://localhost:3000/characters')
+    .then(response => response.json())
+    .then(newCharcomparison)
+    .then(value => {
+        fetch(`http://localhost:3000/characters/${value}`, {
+            method: 'DELETE'
+        })
     })
 })
-    team1Container.appendChild(newChar1Node)
+team1Container.appendChild(newChar1Node)
 })
+
+function hiddenForm() {
+   const submission = document.getElementById("formSub")
+   submission.style.display = "block"
+}
+
+function newCharcomparison(all) {
+    let compare = all.filter(matchId => matchId.name == charOptionArray)
+    let ide = compare.map(char => {
+        return char.id
+    })
+   return ide[0]
+}
 
 $('#form2').submit(function() {
     let newChar2Node = document.createElement('h3')
     let char2Array = $(this).serializeArray()
     newChar2Node.innerText = char2Array[1]['value'] + ": " + char2Array[2]['value']
-    team2Container.appendChild(newChar2Node)
     window.value = char2Array[3]['value']
     fetch('http://localhost:3000/spells')
     .then(response => response.json())
     .then(spellInfo2);
+    let yourDeleteButton2 = document.createElement('button')
+    yourDeleteButton2.innerText = "Delete"
+    newChar2Node.appendChild(yourDeleteButton2)
+    let yourUpdateButton2 = document.createElement('button')
+    yourUpdateButton2.innerText = "Update"
+    newChar2Node.appendChild(yourUpdateButton2)
+    yourUpdateButton2.addEventListener('click', (event) => {
+        char2OptionArray = char2Array[1]['value']
+        fetch('http://localhost:3000/characters')
+        .then(response => response.json())
+        .then(new2Charcomparison)
+        // .then(value => {
+            // fetch(`http://localhost:3000/characters/${value}`, {
+            //     method: 'PUT',
+            //     headers:{
+            //         'Content-Type':'application/json',
+            //         'Accept':'application/json'
+            //     },
+            //     body:JSON.stringify({type:"Cancer BAGEL"})
+            // })
+        // })
+    })
+
+
+    yourDeleteButton2.addEventListener('click', (event) => {
+    event.target.parentNode.remove()
+    char2OptionArray = char2Array[1]['value']
+    fetch('http://localhost:3000/characters')
+    .then(response => response.json())
+    .then(new2Charcomparison)
+    .then(value => {
+        fetch(`http://localhost:3000/characters/${value}`, {
+            method: 'DELETE'
+        })
+    })
 })
+team2Container.appendChild(newChar2Node)
+})
+
+function new2Charcomparison(all) {
+    let compare2 = all.filter(matchId => matchId.name == char2OptionArray)
+    let idee = compare2.map(char => {
+        return char.id
+    })
+   return idee[0]
+}
 
 let win = document.createElement('h1')
 win.innerText = "WITCHY WINNER"
 winnerContainer.appendChild(win)
 
-
-
 function spellInfo(spells) {
 
     let spellOptionIds = window.value
     let stringy = spellOptionIds.split(",").map(Number)
-    window.spell1= spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)
-    
+    window.spell1= spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)  
 }
 
 function spellInfo2(spells) {
@@ -193,7 +285,6 @@ function spellInfo2(spells) {
     let stringy = spellOptionIds.split(",").map(Number)
     window.spell2 = spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)
 }
-
 
 battleButtonContainer.addEventListener('click', function() {
     winnerSpell = document.createElement('div')
@@ -205,3 +296,4 @@ battleButtonContainer.addEventListener('click', function() {
     winnerContainer.appendChild(winnerSpell)
 })
     
+
