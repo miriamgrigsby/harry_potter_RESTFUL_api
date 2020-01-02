@@ -4,6 +4,12 @@ body, html {
     background-image: url('https://depositphotos.com/5468676/stock-photo-marble-texture-background-high-resolution.html');
 }
 
+#topper {
+    background-image: url("https://images.pond5.com/dark-clouds-sky-footage-025123113_prevstill.jpeg");
+    margin-top: -25px;
+    color: rgba(255, 255, 255, 0.705);
+}
+
 #enter-button {
     height: 50px;
     width: 200px;
@@ -34,29 +40,35 @@ h1 {
 
 p {
     text-align: center;
+    font-size: 25px;
 }
 
 #starter-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 5px solid blue;
+    margin-top: -25px;
+    /* border-top: 5px solid blue;
     border-bottom: 5px solid blue;
     border-right: 5px solid blue;
-    border-left: 5px solid blue;
+    border-left: 5px solid blue; */
 }
 
 #character1create-container {
     display: flex;
     flex-direction: column; 
     width: 50%;
+    background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
+    color: red;
 }
 
 #character2create-container {
     display: flex;
     flex-direction: column;
     width: 50%;
-    border-left: 5px solid blue;
+    /* border-left: 5px solid blue; */
+    background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
+    color: red;
 }
 #header1-container, #header2-container {
     display: flex;
@@ -90,40 +102,40 @@ p {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-top: 5px solid blue;
-    border-bottom: 5px solid blue;
-    border-right: 5px solid blue;
-    border-left: 5px solid blue;
 }
 
 #team1-container {
     display: flex;
     flex-direction: column;
     width: 30%;
-    border-top: 5px solid red;
-    border-bottom: 5px solid red;
-    border-right: 5px solid red;
-    border-left: 5px solid red;
+    border: 5px solid red;
 }
 
 #team2-container {
     display: flex;
     flex-direction: column;
     width: 30%;
-    border-top: 5px solid red;
-    border-bottom: 5px solid red;
-    border-right: 5px solid red;
-    border-left: 5px solid red;
+    border: 5px solid red;
+   
 }
 
 #battlebutton-container {
     display: flex;
     flex-direction: column;
     width: 10%;
-    border-top: 5px solid red;
+    /* border-top: 5px solid red;
     border-bottom: 5px solid red;
     border-right: 5px solid red;
-    border-left: 5px solid red;
+    border-left: 5px solid red; */
+}
+
+#bbutton {
+    border-radius: 7px;
+    margin: auto;
+    height: 40%;
+    width: 75%;
+    font-size: 90%;
+    font-weight: bolder;
 }
 
 #winner-container {

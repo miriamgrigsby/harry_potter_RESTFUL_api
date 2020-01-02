@@ -38,9 +38,8 @@ ActiveRecord::Schema.define(version: 2019_12_30_203648) do
 
   create_table "spells", force: :cascade do |t|
     t.string "name"
-    t.string "kind"
+    t.integer "kind"
     t.string "effect"
-    t.string "counter_spell"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
