@@ -23,7 +23,8 @@ class CharactersController < ApplicationController
 
 
     def update
-        if @character.update(charcter_params)
+        # byebug
+        if @character.update(character_params)
             render json: @character
         else
             render json: @character.errors, status: :unprocessable_entity
@@ -31,7 +32,7 @@ class CharactersController < ApplicationController
     end
 
     def destroy 
-        @character.delete
+        @character.destroy
     end
 
     private 
