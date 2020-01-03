@@ -5,8 +5,8 @@ document.body.appendChild(winnerAnnouncement)
 const searchParams = new URLSearchParams(window.location.search)
 const id = searchParams.get('id')
 
-fetch (`http://localhost:3000/characters/${id}`)
-    .then(response => (response.json()))
+fetch (`http://localhost:3000/houses/${id}`)
+    .then(response =>console.log(response.json()))
     .then(houseWinner)
 
 function houseWinner(house){
@@ -17,8 +17,7 @@ function houseWinner(house){
         houseSpells1 = document.createElement('h4')
         houseSpells2 = document.createElement('h4')
         houseSpells3 = document.createElement('h4')
-        
-        
+  
         houseName.innerText = `${house["house"]["name"]}!`
         houseAddition.innerHTML = `You earned a new house member: ${house["name"]}`
         spellIntro.innerText = "You've earned these new spells:"
