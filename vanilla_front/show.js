@@ -45,14 +45,14 @@ function houseWinner(house){
 
         const characterSpell = house["characters"][0]["spells"]
 
+        const randomSpell1 = characterSpell[Math.floor(Math.random()*characterSpell.length)]
+        const randomSpell2 = characterSpell[Math.floor(Math.random()*characterSpell.length)]
+        const randomSpell3 = characterSpell[Math.floor(Math.random()*characterSpell.length)]
 
         houseSpells1.innerHTML = `<a style='color:blue' href="http://localhost:3001/showspells.html?id=${randomSpell1.id}">${randomSpell1["name"]}</a>`
         houseSpells2.innerHTML = `<a style='color:blue' href="http://localhost:3001/showspells.html?id=${randomSpell2.id}">${randomSpell2["name"]}</a>`
         houseSpells3.innerHTML = `<a style='color:blue' href="http://localhost:3001/showspells.html?id=${randomSpell3.id}">${randomSpell3["name"]}</a>`
 
-        const randomSpell1 = characterSpell[Math.floor(Math.random()*characterSpell.length)]
-        const randomSpell2 = characterSpell[Math.floor(Math.random()*characterSpell.length)]
-        const randomSpell3 = characterSpell[Math.floor(Math.random()*characterSpell.length)]
 
 
             
