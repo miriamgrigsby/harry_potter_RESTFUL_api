@@ -39,14 +39,7 @@ function characterInfo(characters) {
         
         $('#char1-dropdown').append(`<option name='${character.house.id}' value="${character.id}">${character.name}: ${character.ancestry}</option>`);
         
-<<<<<<< HEAD
-        starterContainer.append(charater1CreateContainer)
-        spell1Option.innerText = character.character_spells
-        // Need to have event listener that grabs the data from house dropdown to make it appear in the team1-container
-        // need to have an event listener that grabs choice value from dropdown to filter the available characters to add to your team
-=======
         $('#char2-dropdown').append(`<option name='${character.house.id}' value="${character.id}">${character.name}: ${character.ancestry}</option>`);
->>>>>>> 1a177b4b6ab117215736adc06a1aac44e32fd894
         
         spellIdFinder = character.spells.map(spell => {
             return spell.id})
@@ -294,11 +287,19 @@ function spellInfo2(spells) {
 }
 
 battleButtonContainer.addEventListener('click', function() {
-    winnerSpell = document.createElement('div')
+    winnerSpell = document.createElement('h2')
     if (window.spell1 > window.spell2) {
         winnerSpell.innerText = window.houseWinner1
+
+        // winnerSpell.innerHTML = `<a href="show.html?id=${character.house.id}">${window.houseWinner1}</a>`
+        // console.log(house.id)
     } else {
-        winnerSpell.innerText = window.houseWinner2
+        winnerSpell.innerText = window.houseWinner2        
+        // console.log(house.id)
+        // console.log(window.houseWinner1.id)
+
+        // winnerSpell.innerHTML = `<a href="show.html?id=${character.house.id}">${window.houseWinner2}</a>`
+
     }
     winnerContainer.appendChild(winnerSpell)
 })
