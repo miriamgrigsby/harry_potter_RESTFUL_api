@@ -1,7 +1,8 @@
 body, html {
     height: 100%;
     margin: 0;
-    background-image: url('https://depositphotos.com/5468676/stock-photo-marble-texture-background-high-resolution.html');
+    background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
+    background-repeat: repeat;
 }
 
 #topper {
@@ -48,10 +49,6 @@ p {
     flex-direction: row;
     justify-content: space-between;
     margin-top: -25px;
-    /* border-top: 5px solid blue;
-    border-bottom: 5px solid blue;
-    border-right: 5px solid blue;
-    border-left: 5px solid blue; */
 }
 
 #character1create-container {
@@ -66,7 +63,6 @@ p {
     display: flex;
     flex-direction: column;
     width: 50%;
-    /* border-left: 5px solid blue; */
     background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
     color: red;
 }
@@ -108,11 +104,9 @@ p {
     display: flex;
     flex-direction: column;
     width: 30%;
-    /* border: 5px solid red; */
     background-size: 100%;
     background-image: url('https://previews.123rf.com/images/lesichkadesign/lesichkadesign1803/lesichkadesign180300208/98618296-blood-stain-texture-spot-splash-of-blood-blood-stain-isolated-on-white-background.jpg');
     background-position: left;
-    
 }
 
 
@@ -120,7 +114,6 @@ p {
     display: flex;
     flex-direction: column;
     width: 30%;
-    /* border: 5px solid red; */
     background-size: 100%;
     background-image: url('https://previews.123rf.com/images/lesichkadesign/lesichkadesign1803/lesichkadesign180300208/98618296-blood-stain-texture-spot-splash-of-blood-blood-stain-isolated-on-white-background.jpg');
     background-position: center;
@@ -131,11 +124,7 @@ p {
     flex-direction: column;
     width: 10%;
     justify-content: center;
-    
-    /* border-top: 5px solid red;
-    border-bottom: 5px solid red;
-    border-right: 5px solid red;
-    border-left: 5px solid red; */
+    background-color: white;
 }
 
 #bbutton {
@@ -157,10 +146,6 @@ p {
     width: 30%;
     color: white;
     text-align: center;
-    /* /* border-top: 5px solid red; */
-    /* border-bottom: 5px solid red;
-    border-right: 5px solid red;
-    border-left: 5px solid red;   */
     background-size: 100%;
     background-blend-mode: soft-light;
     background-image: url('https://image.freepik.com/free-photo/red-color-powder-explosion-black-background-freeze-motion-red-dust-particles-splashing_36326-2081.jpg');
