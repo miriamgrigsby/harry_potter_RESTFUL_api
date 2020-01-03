@@ -98,7 +98,7 @@ function characterInfo(characters) {
     $('#house2-dropdown').on('change', function () {
         let houseNode = document.createElement('h2')
         houseNode.innerText = $('#house2-dropdown option:selected').text()
-        window.HouseId2 = $('#house1-dropdown option:selected')[0]["value"]
+        window.HouseId2 = $('#house2-dropdown option:selected')[0]["value"]
         window.houseWinner2 = houseNode.innerText
         team2Container.prepend(houseNode)
         $('#char2-dropdown option').each(function () {
@@ -332,12 +332,12 @@ function spellInfo2(spells) {
     let spellOptionIds = window.value
     let stringy = spellOptionIds.split(",").map(Number)
     window.spell2 = spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)
+    
 }
-
 battleButtonContainer.addEventListener('click', function () {
+    console.log(window.spell1, window.spell2)
     winnerSpell = document.createElement('h2')
     if (window.spell1 > window.spell2) {
-
         winnerSpell.innerHTML = `<a style='color:whitesmoke' href="show.html?id=${window.HouseId}">${window.houseWinner1}</a>`
     } else {
 

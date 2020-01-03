@@ -1,4 +1,58 @@
-h1 {
-    font-family: rgb(100, 53, 63);
+/* #show-page {
+    color: white;
     font-size: 60px
+} */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
+    background-repeat: repeat;
+    color:white;
+}
+
+#header {
+    display: flex;
+    border: red;
+    margin-top: -25px;
+    color: rgba(255, 255, 255, 0.705);
+}
+
+#house-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    border: green;
+}
+
+#house-gretting {
+    display: flex;
+    color: white;
+    border: yellow;
+}
+#house-addition {
+    display: flex;
+    color: white;
+    border: pink;
+}
+
+#spells {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    border: white;
+}
+
+#spells-intro {
+    display: flex;
+    color: white;
+    justify-content: center;
+}
+
+#spell-container {
+    display: flex;
+    justify-content: column;
+    color: white;
+    border: lightseagreen;
 }

@@ -49,6 +49,7 @@ p {
     flex-direction: row;
     justify-content: space-between;
     margin-top: -25px;
+    border: blue;
 }
 
 #character1create-container {
