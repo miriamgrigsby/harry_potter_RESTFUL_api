@@ -131,6 +131,7 @@ p {
     flex-direction: column;
     width: 10%;
     justify-content: center;
+    
     /* border-top: 5px solid red;
     border-bottom: 5px solid red;
     border-right: 5px solid red;
@@ -155,6 +156,7 @@ p {
     flex-direction: column;
     width: 30%;
     color: white;
+    text-align: center;
     /* /* border-top: 5px solid red; */
     /* border-bottom: 5px solid red;
     border-right: 5px solid red;
