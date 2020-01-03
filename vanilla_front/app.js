@@ -166,7 +166,7 @@ $('#form1').submit(function() {
     let yourUpdateButton1 = document.createElement('button')
     yourUpdateButton1.innerText = "Update"
     newChar1Node.appendChild(yourUpdateButton1)
-    
+
         yourUpdateButton1.addEventListener('click', (event) => {
         hiddenForm()
         charOptionArray = charArray[1]['value']
