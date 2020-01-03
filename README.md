@@ -1,7 +1,4 @@
-# harry_potter_RESTFUL_api
-
-
-Harry Potter 1-Page App 
+# Harry Potter 1-Page App 
 
   This is a simple application with a Ruby on Rails detached backend and vanilla Javascript front
 
