@@ -165,13 +165,6 @@ $('#form1').submit(function () {
     yourUpdateButton1.innerText = "Update"
     newChar1Node.appendChild(yourUpdateButton1)
     window.charOptionArray = charArray[1]['value']
-    // fetch('http://localhost:3000/characters')
-    //     .then(response => response.json())
-    //     .then(newCharcomparison)
-    //     .then(value => {
-    //         houseId = value;
-    //     })
-
 
     yourUpdateButton1.addEventListener('click', (event) => {
         hiddenForm()
@@ -183,7 +176,6 @@ $('#form1').submit(function () {
     formSub.addEventListener('submit', (event) => {
         hiddenForm()
         event.preventDefault()
-        // charOptionArray = charArray[1]['value']
         fetch('http://localhost:3000/characters')
             .then(response => response.json())
             .then(newCharcomparison)
@@ -202,7 +194,6 @@ $('#form1').submit(function () {
 
     yourDeleteButton1.addEventListener('click', (event) => {
         event.target.parentNode.remove()
-        // charOptionArray = charArray[1]['value']
         fetch('http://localhost:3000/characters')
             .then(response => response.json())
             .then(newCharcomparison)
@@ -260,11 +251,8 @@ $('#form2').submit(function () {
     yourUpdateButton2.innerText = "Update"
     newChar2Node.appendChild(yourUpdateButton2)
     window.char2OptionArray = char2Array[1]['value']
-    // fetch('http://localhost:3000/characters')
-    //     .then(response => response.json())
-    //     .then(new2Charcomparison)
-    //     .then(value => {houseId2 = value})
-                
+
+
 
     yourUpdateButton2.addEventListener('click', (event) => {
         hiddenForm2()
@@ -275,7 +263,7 @@ $('#form2').submit(function () {
     formSub2.addEventListener('submit', (event) => {
         hiddenForm2()
         event.preventDefault()
-        // char2OptionArray = char2Array[1]['value']
+
         fetch('http://localhost:3000/characters')
             .then(response => response.json())
             .then(new2Charcomparison)
@@ -295,7 +283,6 @@ $('#form2').submit(function () {
 
     yourDeleteButton2.addEventListener('click', (event) => {
         event.target.parentNode.remove()
-        // char2OptionArray = char2Array[1]['value']
         fetch('http://localhost:3000/characters')
             .then(response => response.json())
             .then(new2Charcomparison)
@@ -310,7 +297,7 @@ $('#form2').submit(function () {
 
 function new2Charcomparison(all) {
     let compare2 = all.filter(matchId => matchId.name == window.char2OptionArray)
-    // console.log(compare2)
+
     let idee = compare2.map(char => {
         return char.id
     })
@@ -332,10 +319,9 @@ function spellInfo2(spells) {
     let spellOptionIds = window.value
     let stringy = spellOptionIds.split(",").map(Number)
     window.spell2 = spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)
-    
+
 }
 battleButtonContainer.addEventListener('click', function () {
-    console.log(window.spell1, window.spell2)
     winnerSpell = document.createElement('h2')
     if (window.spell1 > window.spell2) {
         winnerSpell.innerHTML = `<a style='color:whitesmoke' href="show.html?id=${window.HouseId}">${window.houseWinner1}</a>`

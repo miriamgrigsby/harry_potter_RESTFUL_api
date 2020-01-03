@@ -1,10 +1,7 @@
-/* #show-page {
-    color: white;
-    font-size: 60px
-} */
+
 #back-button{
-    margin-top: 25px;
-    margin-left: 15px;
+    margin-top: 1%;
+    margin-left: 3%;
     font-size: 16px;
     border-radius: 10px;
     background-image: linear-gradient(maroon, gray);
@@ -19,15 +16,12 @@ body, html {
     color: rgba(255, 255, 255, 0.705);
 }
 
-/* body, iframe {
-    align-self:center;
-} */
 
 #header-container {
     display: flex;
-    margin-top: 25px;
+    margin-top: 2%;
     color: rgba(255, 255, 255, 0.705);
-    margin-left: 15px;
+    margin-left: 2%;
 }
 
 #house-container {
@@ -38,7 +32,7 @@ body, html {
 }
 
 #house-greeting {
-    margin-left: 15px;
+    margin-left: 2%;
     display: flex;
     justify-content: left;
     color: rgba(255, 255, 255, 0.705);
@@ -50,6 +44,8 @@ body, html {
     border: 5px solid maroon;
     border-radius: 8ch;
     color: blue;
+    margin-left: 2%;
+    margin-right: 2%;
     background-image: url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HpUJdgiIxiy0v1k4f/videoblocks-4k-thick-black-smoke-billowing-from-burning-firepit-pan-up_bmxlegepl_thumbnail-full04.png)
 
 }
@@ -58,7 +54,8 @@ body, html {
     display: flex;
     color: white;
     flex-direction: column;
-    margin-left: 15px;
+    margin-left: 2%;
+    margin-right: 2%;
     align-items:left;
     justify-content: center;
 }
@@ -86,20 +83,16 @@ body, html {
     align-items: center; 
     background-image: url(https://mk0uploadvrcom4bcwhj.kinstacdn.com/wp-content/uploads/2017/11/harry-potter-battle-image.jpg);
     background-repeat: no-repeat;
-    background-size: 60%, 60%;
+    background-size: 50%, 50%;
     margin-top: 80px; 
     height: 50%;
-    margin-left: 36%;
+    margin-left: 36.30%;
     width: 50%;
-    /* border: solid white; */
 
 }
 
 #player {
     display: none;
-    margin-top:-30%;
-    margin-left:28%;
+    margin-top:-26.25%;
+    margin-left:36.33%;
 }
-
-
-/* https://mk0uploadvrcom4bcwhj.kinstacdn.com/wp-content/uploads/2017/11/harry-potter-battle-image.jpg */
