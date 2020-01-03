@@ -15,14 +15,16 @@ class CharactersController < ApplicationController
         @character = Character.new(character_params)
         if @character.valid?
             @character.save
+            # render json: @character
         else 
         end
-        redirect_to ("http://localhost:3001")
+        # redirect_to ("http://localhost:3001")
     end
 
 
     def update
-        if @character.update(charcter_params)
+        # byebug
+        if @character.update(character_params)
             render json: @character
         else
             render json: @character.errors, status: :unprocessable_entity
@@ -30,7 +32,7 @@ class CharactersController < ApplicationController
     end
 
     def destroy 
-        @character.delete
+        @character.destroy
     end
 
     private 

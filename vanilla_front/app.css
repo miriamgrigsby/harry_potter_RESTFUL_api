@@ -1,21 +1,165 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-image: url('https://depositphotos.com/5468676/stock-photo-marble-texture-background-high-resolution.html');
+}
+
+#topper {
+    background-image: url("https://images.pond5.com/dark-clouds-sky-footage-025123113_prevstill.jpeg");
+    margin-top: -25px;
+    color: rgba(255, 255, 255, 0.705);
+}
+
+#enter-button {
+    height: 50px;
+    width: 200px;
+    border-radius: 7px;
+    justify-content: center;
+    background-color: rgb(166, 166, 166);
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 15px;
+    background-image: linear-gradient(black, gray);
+}
+
+#enter-button:hover {
+    cursor: pointer;
+}
+
+#home-container {
+    background-image: url('http://getwallpapers.com/wallpaper/full/9/8/5/17360.jpg');
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    padding-top: 25%;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+}
+
 #starter-container {
-    border-top: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -25px;
+    /* border-top: 5px solid blue;
     border-bottom: 5px solid blue;
-}
-#house1-container {
-    border-top: 1px solid red;
-    border-bottom: 1px solid red;
-}
-#house2-container {
-    border-top: 1px solid red;
-    border-bottom: 1px solid red;
+    border-right: 5px solid blue;
+    border-left: 5px solid blue; */
 }
 
 #character1create-container {
-    border-top: 1px solid green;
-    border-bottom: 1px solid green;
+    display: flex;
+    flex-direction: column; 
+    width: 50%;
+    background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
+    color: red;
 }
+
 #character2create-container {
-    border-top: 1px solid green;
-    border-bottom: 5px solid green;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    /* border-left: 5px solid blue; */
+    background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
+    color: red;
+}
+#header1-container, #header2-container {
+    display: flex;
+    justify-content: center;
+}
+
+#house1-container, #house2-container {
+    display: flex;
+    justify-content: center;
+}
+
+#name1Ance-container, 
+#name2Ance-container, 
+#spell-container, 
+#spell2-container, 
+#submit-container, 
+#submit2-container, 
+#mates1-container, 
+#mates2-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px;
+    
+}
+
+#name1Ance-container, #name2Ance-container {
+    padding: 10px;
+}
+
+#fight-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#team1-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    /* border: 5px solid red; */
+    background-size: 100%;
+    background-image: url('https://previews.123rf.com/images/lesichkadesign/lesichkadesign1803/lesichkadesign180300208/98618296-blood-stain-texture-spot-splash-of-blood-blood-stain-isolated-on-white-background.jpg');
+    background-position: left;
+    
+}
+
+
+#team2-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    /* border: 5px solid red; */
+    background-size: 100%;
+    background-image: url('https://previews.123rf.com/images/lesichkadesign/lesichkadesign1803/lesichkadesign180300208/98618296-blood-stain-texture-spot-splash-of-blood-blood-stain-isolated-on-white-background.jpg');
+    background-position: center;
+}
+
+#battlebutton-container {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    justify-content: center;
+    /* border-top: 5px solid red;
+    border-bottom: 5px solid red;
+    border-right: 5px solid red;
+    border-left: 5px solid red; */
+}
+
+#bbutton {
+    border-radius: 7px;
+    margin: auto;
+    height: 40%;
+    width: 75%;
+    font-size: 90%;
+    font-weight: bolder;
+    justify-content: center;
+    background-color: rgb(166, 166, 166);
+    color: whitesmoke;
+    background-image: linear-gradient(black, gray, red);
+}
+
+#winner-container {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    color: white;
+    /* /* border-top: 5px solid red; */
+    /* border-bottom: 5px solid red;
+    border-right: 5px solid red;
+    border-left: 5px solid red;   */
+    background-size: 100%;
+    background-blend-mode: soft-light;
+    background-image: url('https://image.freepik.com/free-photo/red-color-powder-explosion-black-background-freeze-motion-red-dust-particles-splashing_36326-2081.jpg');
 }

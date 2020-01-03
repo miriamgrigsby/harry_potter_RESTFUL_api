@@ -17,15 +17,28 @@ Spell.destroy_all
 charResponse = RestClient.get("https://www.potterapi.com/v1/characters/?key=$2a$10$j0G65h3rRbsYHsrU/2B83O.E0f7/iycXfakmkydoXGxLLF6wsJmmq")
 charResult = JSON.parse(charResponse)
 
-spellResponse = RestClient.get("https://raw.githubusercontent.com/bukinoshita/harry-potter-spells/master/spells.json")
+spellResponse = RestClient.get("https://www.potterapi.com/v1/spells/?key=$2a$10$j0G65h3rRbsYHsrU/2B83O.E0f7/iycXfakmkydoXGxLLF6wsJmmq")
 spellResult = JSON.parse(spellResponse)
 
 spellResult.map do |spell|
+    case spell["type"]
+    when "Charm" 
+        spell_value = 2
+    when "Curse"
+        spell_value = 6
+    when "Enchantment"
+        spell_value = 3
+    when "Spell"
+        spell_value = 5
+    when "Hex" 
+        spell_value = 1
+    when "Jinx"
+        spell_value = 4
+    end
     Spell.create(
-        name: spell["name"],
-        kind: spell["type"],
-        effect: spell["effect"],
-        counter_spell: spell["counter-spell"]
+        name: spell["spell"],
+        kind: spell_value,
+        effect: spell["effect"]
     )
 end
 
@@ -35,13 +48,18 @@ charResult.each do |character|
             name: character["house"]
         ).characters.create( 
             name: character["name"],
-            ancestry: character["blood-status"]
+            ancestry: character["bloodStatus"]
         )
-        25.times.map do |i|
-            CharacterSpell.find_or_create_by(spell_id: rand(1..93), character_id: rand(1..33))
+        60.times.map do |i|
+            CharacterSpell.find_or_create_by(spell_id: rand(1..151), character_id: rand(1..33))
         end
     end
 end
 
-binding.pry
+# binding.pry
+
+
+
+
+
 

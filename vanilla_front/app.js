@@ -1,102 +1,306 @@
 const starterContainer = document.getElementById('starter-container')
-const house1Container = document.getElementById('house1-container')
-const house1dropdown = document.getElementById('house1-dropdown')
-const spell1dropdown = document.getElementById('spell1-dropdown')
+$('#house1-dropdown').chosen();
+$('#house1-dropdown').append('<option value=""></option>');
+$('#char1-dropdown').chosen({max_selected_options: 2});
+$('#char1-dropdown').append('<option value=""></option>');
+$('#spell1-dropdown').chosen();
+$('#spell1-dropdown').append('<option value=""></option>');
 
-const house2Container = document.getElementById('house2-container')
-const house2dropdown = document.getElementById('house2-dropdown')
-const spell2dropdown = document.getElementById('spell2-dropdown')
-const charater2CreateContainer =  document.getElementById('character2create-container')
+
+const house1Container =  document.getElementById('house1-container')
+const character1Create = document.getElementById('character1create-container')
+const name1 = document.getElementById('name1Ance-container')
+
+
+$('#house2-dropdown').chosen();
+$('#house2-dropdown').append('<option value=""></option>');
+$('#char2-dropdown').chosen({max_selected_options: 2});
+$('#char2-dropdown').append('<option value=""></option>');
+$('#spell2-dropdown').chosen();
+$('#spell2-dropdown').append('<option value=""></option>');
+
+const team1Container = document.getElementById('team1-container')
+const team2Container = document.getElementById('team2-container')
+const battleButtonContainer = document.getElementById('battlebutton-container')
+const winnerContainer = document.getElementById('winner-container')
 
 
 fetch('http://localhost:3000/characters')
 .then(response => response.json())
 .then(characterInfo)
 
-fetch('http://localhost:3000/spells')
-.then(response => response.json())
-.then(spellInfo)
-
-function spellInfo(spells) {
-    spells.map(spell => {
-        console.log(spell.name)
-        let spell1Option = document.createElement('option')
-        spell1Option.innerText = spell.name
-        spell1Option.value = spell.id
-        spell1dropdown.appendChild(spell1Option)
-
-        let spell2Option = document.createElement('option')
-        spell2Option.innerText = spell.name
-        spell2Option.value = spell.id
-        spell2dropdown.appendChild(spell2Option)
-    })
-}
-
 
 function characterInfo(characters) {
     characters.map(character => {
+
+        $('#house1-dropdown').append(`<option value="${character.house.id}">${character.house.name}</option>`);
+
+        $('#house2-dropdown').append(`<option value="${character.house.id}">${character.house.name}</option>`);
         
-        house1Info = character.house.name
-        let houseOption = document.createElement('option')
-        houseOption.innerText = house1Info
-        houseOption.value = character.house.id
-        house1dropdown.appendChild(houseOption)
-        house1Container.appendChild(house1dropdown)
-
-        // spellFinder = character.spells.map(spell => {
-        //     return spell.name})
-        // spellIdFinder = character.spells.map(spell => {
-        //     return spell.id})
-        // let spell1Option = document.createElement('option')
-        // spell1Option.innerText = spellFinder
-        // spell1Option.value = spellIdFinder
-        // spell1dropdown.appendChild(spell1Option)
-        // charater1CreateContainer.appendChild(spell1dropdown)
-
-        house2Info = character.house.name
-        let house2Option = document.createElement('option')
-        house2Option.innerText = house2Info
-        house2Option.value = character.house.id
-        house2dropdown.appendChild(house2Option)
-        house2Container.appendChild(house2dropdown)
-
-        // spell2Finder = character.spells.map(spell => {
-        //     return spell.name})
-        // spell2IdFinder = character.spells.map(spell => {
-        //     return spell.id})
-        // let spell2Option = document.createElement('option')
-        // spell2Option.innerText = spell2Finder[5]
-        // spell2Option.value = spell2IdFinder
-        // spell2dropdown.appendChild(spell2Option)
+        $('#char1-dropdown').append(`<option name='${character.house.id}' value="${character.id}">${character.name}: ${character.ancestry}</option>`);
         
+<<<<<<< HEAD
         starterContainer.append(charater1CreateContainer)
         spell1Option.innerText = character.character_spells
         // Need to have event listener that grabs the data from house dropdown to make it appear in the team1-container
         // need to have an event listener that grabs choice value from dropdown to filter the available characters to add to your team
+=======
+        $('#char2-dropdown').append(`<option name='${character.house.id}' value="${character.id}">${character.name}: ${character.ancestry}</option>`);
+>>>>>>> 1a177b4b6ab117215736adc06a1aac44e32fd894
         
+        spellIdFinder = character.spells.map(spell => {
+            return spell.id})
+            
+        spellerFinder = character.spells.map(spell => {
+            return spell.name})
+        spellFinder = spellerFinder.map(all => {
+                $('#spell1-dropdown').append(`<option value="${spellIdFinder}">${all}</option>`);
+        })
 
-
-
-
+        spell2IdFinder = character.spells.map(spell => {
+            return spell.id})
         
-
-            let droppers = document.getElementById("house1-dropdown");
-            [].slice.call(droppers.options).map(function(drop){
+        speller2Finder = character.spells.map(spell => {
+            return spell.name})
+        spell2Finder  = speller2Finder.map(all => {
+            $('#spell2-dropdown').append(`<option value="${spell2IdFinder}">${all}</option>`);
+        })
+        
+       
+                 
+        let droppers = document.getElementById("house1-dropdown");
+        [].slice.call(droppers.options).map(function(drop){
             if(this[drop.value]){ 
-            droppers.removeChild(drop);
+                droppers.removeChild(drop);
             } else { 
-            this[drop.value]=1; 
+                this[drop.value]=1; 
             } 
         },{});
-
+        
+        
         let droppers2 = document.getElementById("house2-dropdown");
-            [].slice.call(droppers2.options).map(function(drop){
+        [].slice.call(droppers2.options).map(function(drop){
             if(this[drop.value]){ 
-            droppers2.removeChild(drop); 
+                droppers2.removeChild(drop); 
             } else { 
-            this[drop.value]=1; 
+                this[drop.value]=1; 
             } 
         },{});
+                        
+                    
+    })
+                        
+    $('#house1-dropdown').on('change', function() {        
+        let houseNode = document.createElement('h2')
+        houseNode.innerText = $('#house1-dropdown option:selected').text()
+        window.houseWinner1 = houseNode.innerText 
+        team1Container.prepend(houseNode)
+        $('#char1-dropdown option').each(function(){
+            if ($(this).attr('name') != $('#house1-dropdown option:selected').val()) {
+                this.remove()
+            }
+        })
+        $('#char1-dropdown').trigger('chosen:updated')
     })
 
+    $('#house2-dropdown').on('change', function() {        
+        let houseNode = document.createElement('h2')
+        houseNode.innerText = $('#house2-dropdown option:selected').text()
+        window.houseWinner2 = houseNode.innerText
+        team2Container.prepend(houseNode)
+        $('#char2-dropdown option').each(function(){
+            if ($(this).attr('name') != $('#house2-dropdown option:selected').val()) {
+                this.remove()
+            }
+        })
+        $('#char2-dropdown').trigger('chosen:updated')
+    })
+
+    $('#char1-dropdown').on('change', function() {
+        let selections = $('#char1-dropdown :selected')
+        array1 = []
+        if (selections.length == 2) {
+            let char1Node1 = document.createElement('h3')
+            let char1Node2 = document.createElement('h3')
+            char1Node1.innerText = selections[0].innerText
+            let v1 = parseInt(selections[0]["value"])
+            let v2 = parseInt(selections[1]["value"])
+            array1.push(v1, v2)
+            window.charArray1 = array1
+            char1Node2.innerText = selections[1].innerText
+            team1Container.append(char1Node1, char1Node2)
+        }
+    })
+
+    $('#char2-dropdown').on('change', function() {    
+        let selections2 = $('#char2-dropdown :selected')
+        let array2 = []
+        if (selections2.length == 2) {
+            let char2Node1 = document.createElement('h3')
+            let char2Node2 = document.createElement('h3')
+            char2Node1.innerText = selections2[0].innerText
+            char2Node2.innerText = selections2[1].innerText
+            let v1 = parseInt(selections2[0]["value"])
+            let v2 = parseInt(selections2[1]["value"])
+            array2.push(v1, v2)
+            window.charArray2 = array2
+            team2Container.append(char2Node1, char2Node2)
+        }    
+    })
+
+    $('#house1-dropdown').trigger("chosen:updated");
+    $('#house2-dropdown').trigger("chosen:updated");
+    $('#char1-dropdown').trigger("chosen:updated");
+    $('#char2-dropdown').trigger("chosen:updated");
+    $('#spell1-dropdown').trigger("chosen:updated");
+    $('#spell2-dropdown').trigger("chosen:updated");
+
+                    
 }
+
+$('#form1').submit(function() {
+    let newChar1Node = document.createElement('h3')
+    let charArray = $(this).serializeArray()
+    newChar1Node.value = charArray[0]['value']
+    newChar1Node.innerText = charArray[1]['value'] + ": " + charArray[2]['value']
+    window.value = charArray[3]['value']
+    fetch('http://localhost:3000/spells')
+    .then(response => response.json())
+    .then(spellInfo);
+    let yourDeleteButton1 = document.createElement('button')
+    yourDeleteButton1.innerText = "Delete"
+    newChar1Node.appendChild(yourDeleteButton1)
+    let yourUpdateButton1 = document.createElement('button')
+    yourUpdateButton1.innerText = "Update"
+    newChar1Node.appendChild(yourUpdateButton1)
+    
+        yourUpdateButton1.addEventListener('click', (event) => {
+        hiddenForm()
+        charOptionArray = charArray[1]['value']
+        fetch('http://localhost:3000/characters')
+        .then(response => response.json())
+        .then(newCharcomparison)
+        .then(value => {
+            fetch(`http://localhost:3000/characters/${value}`, {
+                method: 'PUT',
+                headers:{
+                    'Content-Type':'application/json',
+                    'Accept':'application/json'
+                },
+                body:JSON.stringify({ancestry: "pup"})
+            })
+        })
+    })
+
+    yourDeleteButton1.addEventListener('click', (event) => {
+    event.target.parentNode.remove()
+    charOptionArray = charArray[1]['value']
+    fetch('http://localhost:3000/characters')
+    .then(response => response.json())
+    .then(newCharcomparison)
+    .then(value => {
+        fetch(`http://localhost:3000/characters/${value}`, {
+            method: 'DELETE'
+        })
+    })
+})
+team1Container.appendChild(newChar1Node)
+})
+
+function hiddenForm() {
+   const submission = document.getElementById("formSub")
+   submission.style.display = "block"
+}
+
+function newCharcomparison(all) {
+    let compare = all.filter(matchId => matchId.name == charOptionArray)
+    let ide = compare.map(char => {
+        return char.id
+    })
+   return ide[0]
+}
+
+$('#form2').submit(function() {
+    let newChar2Node = document.createElement('h3')
+    let char2Array = $(this).serializeArray()
+    newChar2Node.innerText = char2Array[1]['value'] + ": " + char2Array[2]['value']
+    window.value = char2Array[3]['value']
+    fetch('http://localhost:3000/spells')
+    .then(response => response.json())
+    .then(spellInfo2);
+    let yourDeleteButton2 = document.createElement('button')
+    yourDeleteButton2.innerText = "Delete"
+    newChar2Node.appendChild(yourDeleteButton2)
+    let yourUpdateButton2 = document.createElement('button')
+    yourUpdateButton2.innerText = "Update"
+    newChar2Node.appendChild(yourUpdateButton2)
+    yourUpdateButton2.addEventListener('click', (event) => {
+        char2OptionArray = char2Array[1]['value']
+        fetch('http://localhost:3000/characters')
+        .then(response => response.json())
+        .then(new2Charcomparison)
+        // .then(value => {
+            // fetch(`http://localhost:3000/characters/${value}`, {
+            //     method: 'PUT',
+            //     headers:{
+            //         'Content-Type':'application/json',
+            //         'Accept':'application/json'
+            //     },
+            //     body:JSON.stringify({type:"Cancer BAGEL"})
+            // })
+        // })
+    })
+
+
+    yourDeleteButton2.addEventListener('click', (event) => {
+    event.target.parentNode.remove()
+    char2OptionArray = char2Array[1]['value']
+    fetch('http://localhost:3000/characters')
+    .then(response => response.json())
+    .then(new2Charcomparison)
+    .then(value => {
+        fetch(`http://localhost:3000/characters/${value}`, {
+            method: 'DELETE'
+        })
+    })
+})
+team2Container.appendChild(newChar2Node)
+})
+
+function new2Charcomparison(all) {
+    let compare2 = all.filter(matchId => matchId.name == char2OptionArray)
+    let idee = compare2.map(char => {
+        return char.id
+    })
+   return idee[0]
+}
+
+let win = document.createElement('h1')
+win.innerText = "WITCHY WINNER"
+winnerContainer.appendChild(win)
+
+function spellInfo(spells) {
+
+    let spellOptionIds = window.value
+    let stringy = spellOptionIds.split(",").map(Number)
+    window.spell1= spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)  
+}
+
+function spellInfo2(spells) {
+
+    let spellOptionIds = window.value
+    let stringy = spellOptionIds.split(",").map(Number)
+    window.spell2 = spells.reduce((total, number) => stringy.includes(number.id) ? total += number.kind : total += 0, 0)
+}
+
+battleButtonContainer.addEventListener('click', function() {
+    winnerSpell = document.createElement('div')
+    if (window.spell1 > window.spell2) {
+        winnerSpell.innerText = window.houseWinner1
+    } else {
+        winnerSpell.innerText = window.houseWinner2
+    }
+    winnerContainer.appendChild(winnerSpell)
+})
+    
+

@@ -1,6 +1,6 @@
 class Character < ApplicationRecord
     belongs_to :house
-    has_many :character_spells
+    has_many :character_spells, dependent: :destroy
     has_many :spells, through: :character_spells
 
     def spell_id=(id)
@@ -8,7 +8,12 @@ class Character < ApplicationRecord
         self.spells << spell
     end
 
-    # validates :name, presence: true
-    # validates :name, uniqueness: {case_sensitive: false}
+    # def house_id=(id)
+    #     house = House.find(id)
+    #     self.houses << house
+    # end
+
+    validates :name, presence: true
+    validates :name, uniqueness: {case_sensitive: false}
     # validates :ancestry, presence: true
 end
