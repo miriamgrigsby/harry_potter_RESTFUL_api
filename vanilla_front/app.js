@@ -98,7 +98,7 @@ function characterInfo(characters) {
     $('#house2-dropdown').on('change', function () {
         let houseNode = document.createElement('h2')
         houseNode.innerText = $('#house2-dropdown option:selected').text()
-        window.HouseId2 = $('#house1-dropdown option:selected')[0]["value"]
+        window.HouseId2 = $('#house2-dropdown option:selected')[0]["value"]
         window.houseWinner2 = houseNode.innerText
         team2Container.prepend(houseNode)
         $('#char2-dropdown option').each(function () {
@@ -345,4 +345,5 @@ battleButtonContainer.addEventListener('click', function () {
     }
     winnerContainer.appendChild(winnerSpell)
 })
+
 
