@@ -346,3 +346,4 @@ battleButtonContainer.addEventListener('click', function () {
     winnerContainer.appendChild(winnerSpell)
 })
 
+
