@@ -10,19 +10,27 @@
 
 </head>
 <body>
+    <!-- <button id='back-button' onclick="history.go(-2);">Go back</button> -->
+    <input  id='back-button'name="action" onclick="history.back()" type="submit" value="Go Home"/>
     <div id="show-page">
-        <section id="header"></section>
+        <section id="header-container"></section>
         <section id="house-container">
             <div id='house-greeting'></div>
             <div id='house-addition'></div>
         </section>
         <section id='spells'>
-            <div id='spell-intro'></div>
+            <div id='spells-intro'></div>
             <div id='spells-container'> </div>
         </section>
 
     </div>
+    <div id="imgs"> 
+        <div id='playButton'></div>
+    </div>
+
+    <iframe id='player' width="560" height="315" src="https://www.youtube.com/embed/_ihVsEYQP8E/?&autoplay=1start=79" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" align-self="center" allowfullscreen ></iframe>
     <script src="show.js"></script>
+
     
 </body>
 </html>
