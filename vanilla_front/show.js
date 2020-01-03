@@ -59,8 +59,6 @@ function houseWinner(house){
 }
 
 
-
-
 let playButton = document.createElement('button')
 playButton.innerText = "Play Me"
 imgs.appendChild(playButton)
@@ -75,7 +73,6 @@ function hiddenVideo() {
         video.style.display = "none"
     } else {
         video.style.display = "block"
-        // video.style = "text-align:center"
     }
 }
 

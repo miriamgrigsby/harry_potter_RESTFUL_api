@@ -5,9 +5,63 @@ h1 {
     justify-content: center;
 }
 
+button {
+    margin-top: 1%;
+    margin-left: 3%;
+    font-size: 16px;
+    border-radius: 10px;
+    background-image: linear-gradient(maroon, gray);
+    color: white;
+}
+
+#back-button {
+    margin-top: 1%;
+    margin-left: 3%;
+    font-size: 16px;
+    border-radius: 10px;
+    background-image: linear-gradient(maroon, gray);
+    color: white;
+}
 body, html {
+    
     height: 100%;
     margin: 0;
     background-image: url('https://image.freepik.com/free-photo/dark-grey-black-slate-texture-natural-pattern-with-high-resolution-background-design-art-work-black-stone-wall_38607-408.jpg');
     background-repeat: repeat;
+}
+
+#showspells-page {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+#spellname-container {
+    font-family: "Times New Roman", Georgia, Times, serif;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.705);
+    border: 5px solid maroon;
+    border-radius: 12ch;
+    
+}
+
+
+
+#power-level {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    font-size: x-large;
+    flex-direction: column;
+    justify-content: space-around;
+    border-radius: 12ch;
+    align-items:center;
+    color: rgba(255, 255, 255, 0.705);
+    border: 5px solid maroon;
 }

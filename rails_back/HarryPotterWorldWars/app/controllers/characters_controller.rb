@@ -15,15 +15,12 @@ class CharactersController < ApplicationController
         @character = Character.new(character_params)
         if @character.valid?
             @character.save
-            # render json: @character
         else 
         end
-        # redirect_to ("http://localhost:3001")
     end
 
 
     def update
-        # byebug
         if @character.update(character_params)
             render json: @character
         else
