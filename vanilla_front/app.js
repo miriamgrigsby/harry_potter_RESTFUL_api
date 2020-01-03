@@ -287,11 +287,19 @@ function spellInfo2(spells) {
 }
 
 battleButtonContainer.addEventListener('click', function() {
-    winnerSpell = document.createElement('div')
+    winnerSpell = document.createElement('h2')
     if (window.spell1 > window.spell2) {
         winnerSpell.innerText = window.houseWinner1
+
+        // winnerSpell.innerHTML = `<a href="show.html?id=${character.house.id}">${window.houseWinner1}</a>`
+        // console.log(house.id)
     } else {
-        winnerSpell.innerText = window.houseWinner2
+        winnerSpell.innerText = window.houseWinner2        
+        // console.log(house.id)
+        // console.log(window.houseWinner1.id)
+
+        // winnerSpell.innerHTML = `<a href="show.html?id=${character.house.id}">${window.houseWinner2}</a>`
+
     }
     winnerContainer.appendChild(winnerSpell)
 })

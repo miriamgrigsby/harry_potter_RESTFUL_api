@@ -1,0 +1,6 @@
+h1 {
+    display: flex;
+    font-family: rgb(100, 53, 63);
+    font-size: 60px;
+    justify-content: center;
+}
